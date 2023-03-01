@@ -12,6 +12,12 @@ class S_login extends StatefulWidget {
 class _S_loginState extends State<S_login> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Column(
+        children: [
+          
+        ],
+      ),
+    );
   }
 }
