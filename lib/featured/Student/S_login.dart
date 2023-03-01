@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({super.key});
+class StudentLoginPage extends StatefulWidget {
+  const StudentLoginPage({super.key});
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<StudentLoginPage> createState() => _StudentLoginPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
-  final _LoginPagefield = GlobalKey<_LoginPageState>();
+class _StudentLoginPageState extends State<StudentLoginPage> {
+  final _StudentLoginPagefield = GlobalKey<_StudentLoginPageState>();
   final emailController = TextEditingController();
   final passController = TextEditingController();
   bool passToggle = true;
@@ -18,11 +18,11 @@ class _LoginPageState extends State<LoginPage> {
     return Scaffold(
 
       appBar: AppBar(
-        title: Text("Login Page"),
+        title: const Text("Login Page"),
         centerTitle: true,
       ),
       body: Padding(
-        padding: EdgeInsets.symmetric(
+        padding: const EdgeInsets.symmetric(
           horizontal: 20,
           vertical: 60,
         ),
@@ -36,13 +36,13 @@ class _LoginPageState extends State<LoginPage> {
                 height: 200,
                 width: 200,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 50,
               ),
               TextFormField(
                 keyboardType: TextInputType.emailAddress,
                 controller: emailController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: "Email",
                   border: OutlineInputBorder(),
                   prefix: Icon(
@@ -50,13 +50,13 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               TextFormField(
                 keyboardType: TextInputType.emailAddress,
                 controller: passController,
-                decoration: InputDecoration(
+                decoration: const InputDecoration(
                   labelText: "Password",
                   border: OutlineInputBorder(),
                   prefix: Icon(Icons.lock),
@@ -68,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                   //     ),
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20,
               ),
               InkWell(
