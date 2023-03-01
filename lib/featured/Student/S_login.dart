@@ -16,6 +16,7 @@ class _StudentLoginPageState extends State<StudentLoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(
         title: const Text("Login Page"),
         centerTitle: true,
@@ -111,6 +112,7 @@ class _StudentLoginPageState extends State<StudentLoginPage> {
           ),
         ),
       ),
+
     );
   }
 }
