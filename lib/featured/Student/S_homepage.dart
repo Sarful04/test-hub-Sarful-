@@ -26,11 +26,36 @@ class _StudentHomepageState extends State<StudentHomepage> {
             child: ListView(
               padding: EdgeInsets.zero,
               children: [
-                const DrawerHeader(
-                  decoration: BoxDecoration(
+                DrawerHeader(
+                  decoration: const BoxDecoration(
                     color: Color.fromARGB(255, 132, 195, 250),
                   ),
-                  child: Text('Drawer Header'),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Row(
+                        children: [
+                          AutoSizeText(
+                            "Hello,",
+                            maxLines: 1,
+                            style: GoogleFonts.nunito(
+                                fontSize: 35, fontWeight: FontWeight.bold),
+                          ),
+                          const Spacer(),
+                          CircleAvatar(
+                              radius: 25,
+                              backgroundImage: NetworkImage(FirebaseAuth
+                                  .instance.currentUser!.photoURL!)),
+                        ],
+                      ),
+                      AutoSizeText(
+                        "${FirebaseAuth.instance.currentUser!.displayName!}! 👋",
+                        maxLines: 1,
+                        style: GoogleFonts.nunito(
+                            fontSize: 25, fontWeight: FontWeight.bold),
+                      ),
+                    ],
+                  ),
                 ),
                 ListTile(
                   title: const Text('My Tests'),
@@ -87,18 +112,6 @@ class _StudentHomepageState extends State<StudentHomepage> {
                       ),
                       const SizedBox(
                         height: 15,
-                      ),
-                      AutoSizeText(
-                        "Hello, ${FirebaseAuth.instance.currentUser!.displayName!}! 👋",
-                        style: GoogleFonts.nunito(
-                            fontSize: 30, fontWeight: FontWeight.bold),
-                      ),
-                      AutoSizeText(
-                        "you have 3 active tests",
-                        style: GoogleFonts.nunito(
-                            fontSize: 15,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey),
                       ),
                       const TestDetailCard(),
                       const Spacer(),

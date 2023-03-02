@@ -16,7 +16,7 @@ class AuthService {
             //return const LandingPage();
             return const StudentHomepage();
           } else {
-            return const StudentLoginPage();
+            return const LoginPage();
           }
         });
   }
