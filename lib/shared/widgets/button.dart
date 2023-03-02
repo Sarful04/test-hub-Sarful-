@@ -1,12 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-Widget UserButton(String s, Function fn,double h,double w,ColorSwatch c) {
-  return Container(
-    height: h,
-    width: w,
+Widget UserButton(
+    {required String buttonText,
+    required Function fn,
+    required double height,
+    required double width,
+    required Color buttonColor,
+    required double fontSize}) {
+  return SizedBox(
+    height: height,
+    width: width,
     child: ElevatedButton(
-      style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(c)),
-      onPressed: fn(), child: Text(s,style: GoogleFonts.nunito(color: Colors.white),)),
+        style:
+            ButtonStyle(backgroundColor: MaterialStatePropertyAll(buttonColor)),
+        onPressed: fn(),
+        child: Text(
+          buttonText,
+          style: GoogleFonts.nunito(color: Colors.white, fontSize: fontSize),
+        )),
   );
 }
