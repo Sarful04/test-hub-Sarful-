@@ -19,13 +19,8 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: const Color.fromARGB(255, 132, 195, 250),
-        title: const Text("Welcome to Test Hub"),
-        centerTitle: true,
-      ),
-      body: SingleChildScrollView(
+      resizeToAvoidBottomInset: false,
+      body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(
             horizontal: 20,
@@ -35,16 +30,13 @@ class _LoginPageState extends State<LoginPage> {
             key: _loginfield,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
-                  "assets/avatar.png",
-                  height: 150,
-                  width: 150,
+                  "assets/loginPageImage.png",
+                  height: DeviceDimensions.deviceHeight(context) / 4,
+                  width: DeviceDimensions.deviceWidth(context) / 2,
                 ),
-                const SizedBox(
-                  height: 50,
-                ),
+                SizedBox(height: DeviceDimensions.deviceHeight(context) / 20),
                 TextFormField(
                   keyboardType: TextInputType.emailAddress,
                   controller: emailController,
@@ -66,8 +58,8 @@ class _LoginPageState extends State<LoginPage> {
                   //   }
                   // },
                 ),
-                const SizedBox(
-                  height: 20,
+                SizedBox(
+                  height: DeviceDimensions.deviceHeight(context) / 50,
                 ),
                 TextFormField(
                   keyboardType: TextInputType.emailAddress,
@@ -110,13 +102,15 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ],
                 ),
-                const SizedBox(
-                  height: 20,
-                ),
-                UserButton('Log In', () {}, 40, 500,
-                    const Color.fromARGB(255, 132, 195, 250), 15),
-                const SizedBox(
-                  height: 20,
+                UserButton(
+                    buttonText: "Log in",
+                    fn: () {},
+                    height: DeviceDimensions.deviceHeight(context) / 16,
+                    width: DeviceDimensions.deviceWidth(context),
+                    buttonColor: const Color.fromARGB(255, 132, 195, 250),
+                    fontSize: 15),
+                SizedBox(
+                  height: DeviceDimensions.deviceHeight(context) / 25,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,

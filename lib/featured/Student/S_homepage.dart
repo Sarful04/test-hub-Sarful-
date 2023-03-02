@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:test_hub/services/authentication.dart';
 import 'package:test_hub/shared/constants/device_Dimensions.dart';
-import 'package:test_hub/shared/widgets/test_detail_card.dart';
 
 class StudentHomepage extends StatefulWidget {
   const StudentHomepage({super.key});
@@ -110,11 +109,15 @@ class _StudentHomepageState extends State<StudentHomepage> {
                                   .instance.currentUser!.photoURL!)),
                         ],
                       ),
-                      const SizedBox(
-                        height: 15,
+                      SizedBox(
+                        height: DeviceDimensions.deviceHeight(context) / 3,
                       ),
-                      const TestDetailCard(),
-                      const Spacer(),
+                      AutoSizeText(
+                        "Hello, I am Student Homepage 👋",
+                        maxLines: 1,
+                        style: GoogleFonts.nunito(
+                            fontSize: 30, fontWeight: FontWeight.bold),
+                      ),
                     ],
                   ),
                 ))));
