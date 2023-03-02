@@ -5,14 +5,14 @@ import 'package:test_hub/featured/Teacher/creation.dart';
 import 'package:test_hub/featured/Teacher/drawerlist.dart';
 import 'package:test_hub/featured/Teacher/set_paper.dart';
 
-class TeacherLogin extends StatefulWidget {
-  const TeacherLogin({super.key});
+class THomePage extends StatefulWidget {
+  const THomePage({super.key});
 
   @override
-  State<TeacherLogin> createState() => _TeacherLoginState();
+  State<THomePage> createState() => _THomePageState();
 }
 
-class _TeacherLoginState extends State<TeacherLogin> {
+class _THomePageState extends State<THomePage> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
