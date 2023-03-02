@@ -1,21 +1,24 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:test_hub/featured/Student/S_homepage.dart';
+import 'package:test_hub/featured/Student/S_login.dart';
 
 final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
 class AuthService {
   handleAuthState() {
-    // return StreamBuilder(
-    //     stream: FirebaseAuth.instance.authStateChanges(),
-    //     builder: (BuildContext context, snapshot) {
-    //       if (snapshot.hasData) {
-    //         //return RouteAnimation().createRoute(LandingPage());
-    //         //return const LandingPage();
-    //         return const Temp();
-    //       } else {
-    //         return const UserScreen();
-    //       }
-    //     });
+    return StreamBuilder(
+        stream: FirebaseAuth.instance.authStateChanges(),
+        builder: (BuildContext context, snapshot) {
+          if (snapshot.hasData) {
+            //return RouteAnimation().createRoute(LandingPage());
+            //return const LandingPage();
+            return const StudentHomepage();
+          } else {
+            return const StudentLoginPage();
+          }
+        });
   }
 
   signInWithGoogle() async {
@@ -29,7 +32,7 @@ class AuthService {
   }
 
   Future<void> signOut() async {
-    //await GoogleSignIn().disconnect();
+    await GoogleSignIn().disconnect();
     await _firebaseAuth.signOut();
   }
 }
