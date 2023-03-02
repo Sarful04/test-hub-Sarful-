@@ -16,7 +16,7 @@ class _StudentLoginPageState extends State<StudentLoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
+      resizeToAvoidBottomInset: true,
       appBar: AppBar(
         title: const Text("Login Page"),
         centerTitle: true,
@@ -32,7 +32,7 @@ class _StudentLoginPageState extends State<StudentLoginPage> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Image.asset(
-                "images/avatar.png",
+                "assets/avatar.png",
                 height: 200,
                 width: 200,
               ),
@@ -112,7 +112,6 @@ class _StudentLoginPageState extends State<StudentLoginPage> {
           ),
         ),
       ),
-
     );
   }
 }
