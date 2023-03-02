@@ -1,10 +1,9 @@
-import 'package:auto_size_text/auto_size_text.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
-import 'package:test_hub/services/authentication.dart';
+import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
 import 'package:test_hub/shared/constants/device_Dimensions.dart';
+import 'package:test_hub/shared/widgets/studentWidgets/myDrawer.dart';
+import 'package:test_hub/shared/widgets/studentWidgets/s_homepageTopContainer.dart';
 
 class StudentHomepage extends StatefulWidget {
   const StudentHomepage({super.key});
@@ -15,111 +14,27 @@ class StudentHomepage extends StatefulWidget {
 
 class _StudentHomepageState extends State<StudentHomepage> {
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  final PersistentTabController _controller =
+      PersistentTabController(initialIndex: 0);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         key: _scaffoldKey,
         drawerDragStartBehavior: DragStartBehavior.start,
-        drawer: SafeArea(
-          child: Drawer(
-            child: ListView(
-              padding: EdgeInsets.zero,
-              children: [
-                DrawerHeader(
-                  decoration: const BoxDecoration(
-                    color: Color.fromARGB(255, 132, 195, 250),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          AutoSizeText(
-                            "Hello,",
-                            maxLines: 1,
-                            style: GoogleFonts.nunito(
-                                fontSize: 35, fontWeight: FontWeight.bold),
-                          ),
-                          const Spacer(),
-                          CircleAvatar(
-                              radius: 25,
-                              backgroundImage: NetworkImage(FirebaseAuth
-                                  .instance.currentUser!.photoURL!)),
-                        ],
-                      ),
-                      AutoSizeText(
-                        "${FirebaseAuth.instance.currentUser!.displayName!}! 👋",
-                        maxLines: 1,
-                        style: GoogleFonts.nunito(
-                            fontSize: 25, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
-                ),
-                ListTile(
-                  title: const Text('My Tests'),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                ),
-                ListTile(
-                  title: const Text('Result'),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                ),
-                ElevatedButton(
-                    style: const ButtonStyle(
-                        backgroundColor: MaterialStatePropertyAll(
-                            Color.fromARGB(255, 132, 195, 250))),
-                    onPressed: () {
-                      AuthService().signOut();
-                    },
-                    child: const Text("logout")),
-              ],
-            ),
-          ),
-        ),
-        // appBar: AppBar(
-        //   title: Text(FirebaseAuth.instance.currentUser!.displayName!),
-        // ),
+        drawer: const SafeArea(child: MyDrawer()),
         body: SafeArea(
             child: Container(
                 height: DeviceDimensions.deviceHeight(context),
                 width: DeviceDimensions.deviceWidth(context),
                 decoration: const BoxDecoration(color: Colors.white),
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 8, right: 8, top: 10),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Row(
-                        children: [
-                          GestureDetector(
-                            onTap: () => Scaffold.of(context).openDrawer(),
-                            child: const Icon(
-                              Icons.menu,
-                              size: 30,
-                            ),
-                          ),
-                          const Spacer(),
-                          CircleAvatar(
-                              radius: 20,
-                              backgroundImage: NetworkImage(FirebaseAuth
-                                  .instance.currentUser!.photoURL!)),
-                        ],
-                      ),
-                      SizedBox(
-                        height: DeviceDimensions.deviceHeight(context) / 3,
-                      ),
-                      AutoSizeText(
-                        "Hello, I am Student Homepage 👋",
-                        maxLines: 1,
-                        style: GoogleFonts.nunito(
-                            fontSize: 30, fontWeight: FontWeight.bold),
-                      ),
-                    ],
-                  ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const StudentHomepageTopContainer(),
+                    Row(
+                      children: const [],
+                    )
+                  ],
                 ))));
   }
 }
