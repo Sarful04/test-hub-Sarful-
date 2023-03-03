@@ -10,7 +10,7 @@ class StudentHomepageTopContainer extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: DeviceDimensions.deviceHeight(context) / 4.4,
+      height: DeviceDimensions.deviceHeight(context) / 6,
       width: DeviceDimensions.deviceWidth(context),
       decoration: const BoxDecoration(
           color: Color.fromARGB(255, 20, 115, 220),
@@ -22,30 +22,16 @@ class StudentHomepageTopContainer extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              children: [
-                CircleAvatar(
-                    radius: 25,
-                    backgroundImage: NetworkImage(
-                        FirebaseAuth.instance.currentUser!.photoURL!)),
-                const Spacer(),
-                const Icon(
-                  Icons.notifications,
-                  size: 30,
-                  color: Colors.white,
-                ),
-              ],
-            ),
-            SizedBox(
-              height: DeviceDimensions.deviceHeight(context) / 25,
-            ),
             AutoSizeText(
-              "Hello, ${FirebaseAuth.instance.currentUser!.displayName} 👋",
+              "Hello, ${FirebaseAuth.instance.currentUser!.displayName}! 👋",
               maxLines: 1,
               style: GoogleFonts.nunito(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
                   color: Colors.white),
+            ),
+            SizedBox(
+              height: DeviceDimensions.deviceHeight(context) / 50,
             ),
             const AutoSizeText.rich(
               TextSpan(

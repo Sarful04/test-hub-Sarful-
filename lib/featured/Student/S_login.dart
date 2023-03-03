@@ -1,4 +1,6 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:test_hub/services/authentication.dart';
 import 'package:test_hub/shared/constants/device_Dimensions.dart';
 import 'package:test_hub/shared/widgets/button.dart';
@@ -92,12 +94,12 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     TextButton(
                       onPressed: () {},
-                      child: const Text(
+                      child: Text(
                         "Forget Password",
-                        style: TextStyle(
-                            color: Colors.grey,
-                            fontSize: 16,
-                            fontWeight: FontWeight.normal),
+                        style: GoogleFonts.nunito(
+                            fontSize: 18,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.grey),
                       ),
                     ),
                   ],
@@ -108,28 +110,32 @@ class _LoginPageState extends State<LoginPage> {
                     height: DeviceDimensions.deviceHeight(context) / 16,
                     width: DeviceDimensions.deviceWidth(context),
                     buttonColor: const Color.fromARGB(255, 132, 195, 250),
-                    fontSize: 15),
+                    fontSize: 16),
                 SizedBox(
                   height: DeviceDimensions.deviceHeight(context) / 25,
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    const Text(
-                      "Already have an account ?",
-                      style: TextStyle(
-                        fontSize: 17,
-                      ),
+                GestureDetector(
+                  onTap: () {},
+                  child: AutoSizeText.rich(
+                    TextSpan(
+                      children: [
+                        TextSpan(
+                          text: "Don't have an account?",
+                          style: GoogleFonts.nunito(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black),
+                        ),
+                        TextSpan(
+                          text: " Sign up now!",
+                          style: GoogleFonts.nunito(
+                              fontSize: 18,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.blue),
+                        ),
+                      ],
                     ),
-                    TextButton(
-                      onPressed: () {},
-                      child: const Text(
-                        "Sign Up",
-                        style: TextStyle(
-                            fontSize: 18, fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ],
+                  ),
                 ),
                 const SizedBox(
                   height: 20,
@@ -160,12 +166,12 @@ class _LoginPageState extends State<LoginPage> {
                         const SizedBox(
                           width: 8,
                         ),
-                        const Text(
+                        Text(
                           "Or continue with Google",
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontSize: 15,
-                              fontWeight: FontWeight.normal),
+                          style: GoogleFonts.nunito(
+                              fontSize: 16,
+                              fontWeight: FontWeight.normal,
+                              color: Colors.black),
                         )
                       ],
                     ),
