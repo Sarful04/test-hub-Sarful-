@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:form_field_validator/form_field_validator.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -12,6 +13,21 @@ class _RegisterPageState extends State<RegisterPage> {
   final passController1 = TextEditingController();
   bool passToggle = true;
   bool passToggle1 = true;
+  GlobalKey<FormState> formkey = GlobalKey<FormState>();
+
+  final passwordValidator = MultiValidator([
+    RequiredValidator(errorText: 'password is required'),
+    MinLengthValidator(8, errorText: 'password must be at least 8 digits long'),
+    PatternValidator(r'(?=.*?[#?!@$%^&*-])',
+        errorText: 'passwords must have at least one special character')
+  ]);
+
+  late String password;
+
+  void validate() {
+    if (formkey.currentState!.validate()) {}
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,167 +49,222 @@ class _RegisterPageState extends State<RegisterPage> {
               //         'https://i2.wp.com/bobwama.wordpress.com/files/2008/11/artistic-nature-42754.jpg'),
               //     fit: BoxFit.fill)
             ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                const Padding(
-                  padding: EdgeInsets.only(top: 50, bottom: 30, left: 20),
-                  child: Text(
-                    'Register Here,',
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 22, 221, 221), fontSize: 40),
+            child: Form(
+              key: formkey,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(top: 50, bottom: 30, left: 20),
+                    child: Text(
+                      'Register Here,',
+                      style: TextStyle(
+                          color: Color.fromARGB(255, 22, 221, 221),
+                          fontSize: 40),
+                    ),
                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: 20),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(right: 35),
-                        child: InkWell(
+                  Padding(
+                    padding: const EdgeInsets.only(bottom: 20),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(right: 35),
+                          child: InkWell(
+                            onTap: () {},
+                            child: Column(
+                              children: [
+                                CircleAvatar(
+                                  radius: 32,
+                                  backgroundColor: Colors.black,
+                                  child: CircleAvatar(
+                                    backgroundColor:
+                                        const Color.fromARGB(255, 6, 255, 251),
+                                    radius: 30,
+                                    child: Image.asset(
+                                      "assets/Teacher-removebg-preview.png",
+                                    ),
+                                  ),
+                                ),
+                                const Text(
+                                  'Teacher Login',
+                                  style: TextStyle(
+                                      color: Colors.black, fontSize: 14),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                        InkWell(
                           onTap: () {},
                           child: Column(
                             children: [
-                              Image.asset(
-                                "assets/Teacher-removebg-preview.png",
-                                height: 80,
-                                width: 80,
+                              CircleAvatar(
+                                radius: 32,
+                                backgroundColor: Colors.black,
+                                child: CircleAvatar(
+                                  backgroundColor:
+                                      const Color.fromARGB(255, 6, 255, 251),
+                                  radius: 30,
+                                  child: Image.asset(
+                                    "assets/student-removebg.png",
+                                  ),
+                                ),
                               ),
                               const Text(
-                                'Teacher Login',
+                                'Student Login',
                                 style: TextStyle(
                                     color: Colors.black, fontSize: 14),
                               )
                             ],
                           ),
                         ),
-                      ),
-                      InkWell(
-                        onTap: () {},
-                        child: Column(
-                          children: [
-                            Image.asset(
-                              "assets/student-removebg.png",
-                              height: 80,
-                              width: 80,
-                            ),
-                            const Text(
-                              'Student Login',
-                              style:
-                                  TextStyle(color: Colors.black, fontSize: 14),
-                            )
-                          ],
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const Padding(
-                  padding: EdgeInsets.only(left: 10, bottom: 4, right: 10),
-                  child: TextField(
-                    decoration: InputDecoration(
-                        labelText: 'Name',
-                        border: OutlineInputBorder(
-                            borderSide: BorderSide(color: Colors.black)),
-                        prefixIcon: Icon(Icons.man),
-                        labelStyle: TextStyle(color: Colors.grey)),
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 0, 0, 0), fontSize: 18),
-                  ),
-                ),
-                const Padding(
-                  padding:
-                      EdgeInsets.only(left: 10, bottom: 4, top: 10, right: 10),
-                  child: TextField(
-                    decoration: InputDecoration(
-                        labelText: 'Email',
-                        border: OutlineInputBorder(),
-                        prefixIcon: Icon(Icons.email),
-                        labelStyle: TextStyle(color: Colors.grey)),
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 0, 0, 0), fontSize: 18),
-                  ),
-                ),
-                const Padding(
-                  padding:
-                      EdgeInsets.only(left: 10, bottom: 4, top: 10, right: 10),
-                  child: TextField(
-                    decoration: InputDecoration(
-                        labelText: 'User Name',
-                        border: OutlineInputBorder(),
-                        prefixIcon: Icon(Icons.verified_user_sharp),
-                        labelStyle: TextStyle(color: Colors.grey)),
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 0, 0, 0), fontSize: 18),
-                  ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsets.only(left: 10, bottom: 4, top: 10, right: 10),
-                  child: TextField(
-                    controller: passController,
-                    obscureText: passToggle,
-                    decoration: InputDecoration(
-                        labelText: 'Create Password',
-                        border: OutlineInputBorder(),
-                        prefixIcon: Icon(Icons.lock),
-                        suffix: InkWell(
-                          onTap: () {
-                            setState(() {
-                              passToggle = !passToggle;
-                            });
-                          },
-                          child: Icon(passToggle
-                              ? Icons.visibility
-                              : Icons.visibility_off),
-                        ),
-                        labelStyle: TextStyle(color: Colors.grey)),
-                    //obscureText: true,
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 0, 0, 0), fontSize: 18),
-                  ),
-                ),
-                Padding(
-                  padding:
-                      EdgeInsets.only(left: 10, bottom: 4, top: 10, right: 10),
-                  child: TextField(
-                    controller: passController1,
-                    obscureText: passToggle1,
-                    decoration: InputDecoration(
-                        labelText: 'Confirm Password',
-                        border: OutlineInputBorder(),
-                        prefixIcon: Icon(Icons.password_sharp),
-                        suffix: InkWell(
-                          onTap: () {
-                            setState(() {
-                              passToggle1 = !passToggle1;
-                            });
-                          },
-                          child: Icon(passToggle1
-                              ? Icons.visibility
-                              : Icons.visibility_off),
-                        ),
-                        labelStyle: TextStyle(color: Colors.grey)),
-                    //obscureText: true,
-                    style: TextStyle(
-                        color: Color.fromARGB(255, 0, 0, 0), fontSize: 18),
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(top: 15, bottom: 10),
-                  child: ElevatedButton(
-                    onPressed: () {},
-                    child: const Text(
-                      "Sign in",
-                      style: TextStyle(
-                        color: Colors.black,
-                        fontSize: 20,
-                      ),
+                      ],
                     ),
                   ),
-                )
-              ],
+                  Padding(
+                    padding: const EdgeInsets.only(left: 10, right: 10),
+                    child: TextFormField(
+                      decoration: const InputDecoration(
+                          labelText: 'Name',
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.black),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Color.fromARGB(255, 22, 221, 221)),
+                          ),
+                          prefixIcon: Icon(Icons.man),
+                          labelStyle: TextStyle(color: Colors.grey)),
+                      style: const TextStyle(
+                          color: Color.fromARGB(255, 0, 0, 0), fontSize: 18),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 10, top: 10, right: 10),
+                    child: TextFormField(
+                      decoration: const InputDecoration(
+                          labelText: 'Email',
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.black),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Color.fromARGB(255, 22, 221, 221)),
+                          ),
+                          prefixIcon: Icon(Icons.email),
+                          labelStyle: TextStyle(color: Colors.grey)),
+                      validator: EmailValidator(errorText: 'Invalid Email'),
+                      style: const TextStyle(
+                          color: Color.fromARGB(255, 0, 0, 0), fontSize: 18),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 10, top: 10, right: 10),
+                    child: TextFormField(
+                      decoration: const InputDecoration(
+                          labelText: 'User Name',
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.black),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Color.fromARGB(255, 22, 221, 221)),
+                          ),
+                          prefixIcon: Icon(Icons.verified_user_sharp),
+                          labelStyle: TextStyle(color: Colors.grey)),
+                      style: const TextStyle(
+                          color: Color.fromARGB(255, 0, 0, 0), fontSize: 18),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 10, top: 10, right: 10),
+                    child: TextFormField(
+                      controller: passController,
+                      obscureText: passToggle,
+                      decoration: InputDecoration(
+                          labelText: 'Create Password',
+                          enabledBorder: const OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.black),
+                          ),
+                          focusedBorder: const OutlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Color.fromARGB(2255, 22, 221, 221)),
+                          ),
+                          prefixIcon: const Icon(Icons.lock),
+                          suffix: InkWell(
+                            onTap: () {
+                              setState(() {
+                                passToggle = !passToggle;
+                              });
+                            },
+                            child: Icon(passToggle
+                                ? Icons.visibility
+                                : Icons.visibility_off),
+                          ),
+                          labelStyle: const TextStyle(color: Colors.grey)),
+                      //obscureText: true,
+                      onChanged: (val) => password = val,
+                      validator: passwordValidator,
+                      style: const TextStyle(
+                          color: Color.fromARGB(255, 0, 0, 0), fontSize: 18),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        const EdgeInsets.only(left: 10, top: 10, right: 10),
+                    child: TextFormField(
+                      controller: passController1,
+                      obscureText: passToggle1,
+                      decoration: InputDecoration(
+                          labelText: 'Confirm Password',
+                          enabledBorder: const OutlineInputBorder(
+                            borderSide: BorderSide(color: Colors.black),
+                          ),
+                          focusedBorder: const OutlineInputBorder(
+                            borderSide: BorderSide(
+                                color: Color.fromARGB(255, 22, 221, 221)),
+                          ),
+                          prefixIcon: const Icon(Icons.password_sharp),
+                          suffix: InkWell(
+                            onTap: () {
+                              setState(() {
+                                passToggle1 = !passToggle1;
+                              });
+                            },
+                            child: Icon(passToggle1
+                                ? Icons.visibility
+                                : Icons.visibility_off),
+                          ),
+                          labelStyle: const TextStyle(color: Colors.grey)),
+                      validator: (val) =>
+                          MatchValidator(errorText: 'password dont match')
+                              .validateMatch(val!, password),
+                      //obscureText: true,
+                      style: const TextStyle(
+                          color: Color.fromARGB(255, 0, 0, 0), fontSize: 18),
+                    ),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 15, bottom: 10),
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                          primary: Color.fromARGB(255, 24, 248, 229)),
+                      onPressed: validate,
+                      child: const Text(
+                        "Sign in",
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 20,
+                        ),
+                      ),
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),
