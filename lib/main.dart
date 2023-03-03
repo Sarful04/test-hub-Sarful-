@@ -1,17 +1,20 @@
 // import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:test_hub/featured/Student/S_login.dart';
+import 'package:test_hub/screens/splash_screen.dart';
 import 'firebase_options.dart';
 
 void main() {
   runApp(
     MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: LoginPage(),
-    ),
+        debugShowCheckedModeBanner: false,
+        // home: SplashScreen(),
+        routes: {
+          "/": (context) => SplashScreen(),
+          "/S_login": (context) => LoginPage(),
+        }),
   );
 }
-
 // class MyApp extends StatelessWidget {
 //   const MyApp({super.key});
 

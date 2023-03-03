@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:form_field_validator/form_field_validator.dart';
+import 'package:test_hub/featured/Teacher/register.dart';
+import 'package:test_hub/screens/splash_screen.dart';
 import 'package:test_hub/shared/widgets/button.dart';
 
 class LoginPage extends StatefulWidget {
@@ -9,10 +12,13 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final _loginfield = GlobalKey<_LoginPageState>();
+  GlobalKey<FormState> formkey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passController = TextEditingController();
   bool passToggle = true;
+  void validate() {
+    if (formkey.currentState!.validate()) {}
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -30,13 +36,13 @@ class _LoginPageState extends State<LoginPage> {
             vertical: 60,
           ),
           child: Form(
-            key: _loginfield,
+            key: formkey,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
-                  "images/avatar.png",
+                  "assets/avatar.png",
                   height: 150,
                   width: 150,
                 ),
@@ -53,16 +59,16 @@ class _LoginPageState extends State<LoginPage> {
                       Icons.email,
                     ),
                   ),
-                  // validator: (value) {
-                  //   bool emailValid = RegExp(
-                  //           r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                  //       .hasMatch(value!);
-                  //   if (value.isEmpty) {
-                  //     return "Enter Email";
-                  //   } else if (!emailValid) {
-                  //     return "Enter Vaild Email";
-                  //   }
-                  // },
+                  validator: (value) {
+                    bool emailValid = RegExp(
+                            r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                        .hasMatch(value!);
+                    if (value.isEmpty) {
+                      return "Enter Email";
+                    } else if (!emailValid) {
+                      return "Enter Vaild Email";
+                    }
+                  },
                 ),
                 SizedBox(
                   height: 20,
@@ -85,13 +91,13 @@ class _LoginPageState extends State<LoginPage> {
                           passToggle ? Icons.visibility : Icons.visibility_off),
                     ),
                   ),
-                  // validator: (value) {
-                  //   if (value!.isEmpty) {
-                  //     return "Enter Password";
-                  //   } else if (passController.text.length < 6) {
-                  //     return " Password Length Should be more than 6 characters";
-                  //   }
-                  // },
+                  validator: (value) {
+                    if (value!.isEmpty) {
+                      return "Enter Password";
+                    } else if (passController.text.length < 6) {
+                      return " Password Length Should be more than 8 characters";
+                    }
+                  },
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
@@ -111,8 +117,24 @@ class _LoginPageState extends State<LoginPage> {
                 SizedBox(
                   height: 20,
                 ),
-                UserButton('Log In', () {}, 40, 500,
-                    Color.fromARGB(255, 132, 195, 250), 15),
+                // Padding(
+                //   padding: const EdgeInsets.only(top: 15, bottom: 10),
+                //   child: ElevatedButton(
+                //     style: ElevatedButton.styleFrom(
+                //         primary: Color.fromARGB(255, 24, 248, 229)),
+                //     onPressed: validate,
+                //     child: const Text(
+                //       "Sign in",
+                //       style: TextStyle(
+                //         color: Colors.black,
+                //         fontSize: 20,
+                //       ),
+                //     ),
+                //   ),
+                // ),
+                UserButton('Log In', () {
+                  validate();
+                }, 40, 500, Color.fromARGB(255, 132, 195, 250), 15),
                 SizedBox(
                   height: 20,
                 ),
@@ -159,7 +181,7 @@ class _LoginPageState extends State<LoginPage> {
                           decoration: const BoxDecoration(
                               color: Colors.transparent,
                               image: DecorationImage(
-                                  image: AssetImage("images/googleIcon.png"))),
+                                  image: AssetImage("assets/googleIcon.png"))),
                         ),
                         const SizedBox(
                           width: 8,
