@@ -38,10 +38,14 @@ dependencies:
   firebase_core: ^2.7.0
   google_sign_in: ^6.0.1
   firebase_auth: ^4.2.9
+<<<<<<< HEAD
+  google_fonts: ^4.0.3
+=======
   auto_size_text: ^3.0.0
   google_fonts: ^4.0.3
   easy_sidemenu: ^0.4.1+1
   persistent_bottom_nav_bar: ^5.0.2
+>>>>>>> 1693fcb22fbfe58ec0d5936d3a01a56f838da3f8
 
 dev_dependencies:
   flutter_test:
@@ -68,7 +72,11 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
+<<<<<<< HEAD
+  #  - images/a_dot_ham.jpeg
+=======
   #   - images/a_dot_ham.jpeg
+>>>>>>> 1693fcb22fbfe58ec0d5936d3a01a56f838da3f8
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

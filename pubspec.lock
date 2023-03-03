@@ -360,6 +360,8 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.4"
+<<<<<<< HEAD
+=======
   persistent_bottom_nav_bar:
     dependency: "direct main"
     description:
@@ -368,6 +370,7 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "5.0.2"
+>>>>>>> 1693fcb22fbfe58ec0d5936d3a01a56f838da3f8
   platform:
     dependency: transitive
     description:
