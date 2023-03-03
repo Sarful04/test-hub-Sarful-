@@ -60,7 +60,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       'Register Here,',
                       style: TextStyle(
                           color: Color.fromARGB(255, 22, 221, 221),
-                          fontSize: 40),
+                          fontSize: 30),
                     ),
                   ),
                   Padding(
@@ -192,7 +192,7 @@ class _RegisterPageState extends State<RegisterPage> {
                           ),
                           focusedBorder: const OutlineInputBorder(
                             borderSide: BorderSide(
-                                color: Color.fromARGB(2255, 22, 221, 221)),
+                                color: Color.fromARGB(255, 22, 221, 221)),
                           ),
                           prefixIcon: const Icon(Icons.lock),
                           suffix: InkWell(
@@ -248,8 +248,12 @@ class _RegisterPageState extends State<RegisterPage> {
                           color: Color.fromARGB(255, 0, 0, 0), fontSize: 18),
                     ),
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 15, bottom: 10),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  Container(
+                    height: 45,
+                    width: 340,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           primary: Color.fromARGB(255, 24, 248, 229)),
@@ -258,7 +262,7 @@ class _RegisterPageState extends State<RegisterPage> {
                         "Sign in",
                         style: TextStyle(
                           color: Colors.black,
-                          fontSize: 20,
+                          fontSize: 15,
                         ),
                       ),
                     ),
