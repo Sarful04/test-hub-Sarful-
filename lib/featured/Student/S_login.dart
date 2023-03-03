@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:test_hub/services/authentication.dart';
+import 'package:test_hub/shared/constants/device_Dimensions.dart';
 import 'package:test_hub/shared/widgets/button.dart';
 
 class LoginPage extends StatefulWidget {
@@ -17,15 +19,10 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        elevation: 0,
-        backgroundColor: Color.fromARGB(255, 132, 195, 250),
-        title: Text("Welcome to Test Hub"),
-        centerTitle: true,
-      ),
-      body: SingleChildScrollView(
+      resizeToAvoidBottomInset: false,
+      body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(
+          padding: const EdgeInsets.symmetric(
             horizontal: 20,
             vertical: 60,
           ),
@@ -33,20 +30,17 @@ class _LoginPageState extends State<LoginPage> {
             key: _loginfield,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
-                  "assets/avatar.png",
-                  height: 150,
-                  width: 150,
+                  "assets/loginPageImage.png",
+                  height: DeviceDimensions.deviceHeight(context) / 4,
+                  width: DeviceDimensions.deviceWidth(context) / 2,
                 ),
-                SizedBox(
-                  height: 50,
-                ),
+                SizedBox(height: DeviceDimensions.deviceHeight(context) / 20),
                 TextFormField(
                   keyboardType: TextInputType.emailAddress,
                   controller: emailController,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: "User Email",
                     border: OutlineInputBorder(),
                     prefixIcon: Icon(
@@ -65,7 +59,7 @@ class _LoginPageState extends State<LoginPage> {
                   // },
                 ),
                 SizedBox(
-                  height: 20,
+                  height: DeviceDimensions.deviceHeight(context) / 50,
                 ),
                 TextFormField(
                   keyboardType: TextInputType.emailAddress,
@@ -73,8 +67,8 @@ class _LoginPageState extends State<LoginPage> {
                   obscureText: passToggle,
                   decoration: InputDecoration(
                     labelText: "Password",
-                    border: OutlineInputBorder(),
-                    prefixIcon: Icon(Icons.lock),
+                    border: const OutlineInputBorder(),
+                    prefixIcon: const Icon(Icons.lock),
                     suffixIcon: InkWell(
                       onTap: () {
                         setState(() {
@@ -98,7 +92,7 @@ class _LoginPageState extends State<LoginPage> {
                   children: [
                     TextButton(
                       onPressed: () {},
-                      child: Text(
+                      child: const Text(
                         "Forget Password",
                         style: TextStyle(
                             color: Colors.grey,
@@ -108,18 +102,20 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ],
                 ),
+                UserButton(
+                    buttonText: "Log in",
+                    fn: () {},
+                    height: DeviceDimensions.deviceHeight(context) / 16,
+                    width: DeviceDimensions.deviceWidth(context),
+                    buttonColor: const Color.fromARGB(255, 132, 195, 250),
+                    fontSize: 15),
                 SizedBox(
-                  height: 20,
-                ),
-                UserButton('Log In', () {}, 40, 500,
-                    Color.fromARGB(255, 132, 195, 250), 15),
-                SizedBox(
-                  height: 20,
+                  height: DeviceDimensions.deviceHeight(context) / 25,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       "Already have an account ?",
                       style: TextStyle(
                         fontSize: 17,
@@ -127,7 +123,7 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                     TextButton(
                       onPressed: () {},
-                      child: Text(
+                      child: const Text(
                         "Sign Up",
                         style: TextStyle(
                             fontSize: 18, fontWeight: FontWeight.bold),
@@ -135,15 +131,15 @@ class _LoginPageState extends State<LoginPage> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 InkWell(
-                  // onTap: () {
-                  //   AuthService().signInWithGoogle();
-                  // },
+                  onTap: () {
+                    AuthService().signInWithGoogle();
+                  },
                   child: Container(
-                    height: 40,
+                    height: DeviceDimensions.deviceHeight(context) / 16,
                     // height: DeviceDimensions(context).height / 15,
                     width: double.infinity,
                     decoration: BoxDecoration(
