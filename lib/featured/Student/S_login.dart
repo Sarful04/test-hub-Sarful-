@@ -36,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Image.asset(
-                  "images/avatar.png",
+                  "assets/avatar.png",
                   height: 150,
                   width: 150,
                 ),
@@ -159,7 +159,7 @@ class _LoginPageState extends State<LoginPage> {
                           decoration: const BoxDecoration(
                               color: Colors.transparent,
                               image: DecorationImage(
-                                  image: AssetImage("images/googleIcon.png"))),
+                                  image: AssetImage("assets/googleIcon.png"))),
                         ),
                         const SizedBox(
                           width: 8,
