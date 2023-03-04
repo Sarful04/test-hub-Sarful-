@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 
 Widget UserButton(
     {required String buttonText,
-    required Function fn,
+    required Function? fn(),
     required double height,
     required double width,
     required Color buttonColor,
@@ -14,7 +14,7 @@ Widget UserButton(
     child: ElevatedButton(
         style:
             ButtonStyle(backgroundColor: MaterialStatePropertyAll(buttonColor)),
-        onPressed: fn(),
+        onPressed: fn!,
         child: Text(
           buttonText,
           style: GoogleFonts.nunito(color: Colors.white, fontSize: fontSize),

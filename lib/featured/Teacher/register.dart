@@ -183,7 +183,9 @@ class _RegisterPageState extends State<RegisterPage> {
                 Padding(
                   padding: const EdgeInsets.only(top: 15, bottom: 10),
                   child: ElevatedButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.of(context).pushNamed("/S_login");
+                    },
                     child: const Text(
                       "Sign in",
                       style: TextStyle(
