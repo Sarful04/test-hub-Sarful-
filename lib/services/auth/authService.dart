@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:test_hub/featured/Student/S_homepage.dart';
+import 'package:test_hub/featured/Student/homeScreen.dart';
 import 'package:test_hub/services/auth/userOperations.dart';
 
 class AuthService {
