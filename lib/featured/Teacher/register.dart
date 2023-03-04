@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:form_field_validator/form_field_validator.dart';
+import 'package:test_hub/shared/constants/device_Dimensions.dart';
 
 class RegisterPage extends StatefulWidget {
   const RegisterPage({super.key});
@@ -34,12 +35,14 @@ class _RegisterPageState extends State<RegisterPage> {
       body: SafeArea(
         child: SingleChildScrollView(
           child: Container(
+            height: DeviceDimensions.deviceHeight(context),
+            width: DeviceDimensions.deviceWidth(context),
             decoration: const BoxDecoration(
               gradient: LinearGradient(
                 colors: [
                   Color.fromARGB(255, 255, 255, 255),
-                  Color.fromARGB(255, 255, 255, 255),
-                  Color.fromARGB(255, 255, 255, 255)
+                  // Color.fromARGB(255, 255, 255, 255),
+                  Color.fromARGB(255, 200, 87, 87)
                 ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
@@ -54,14 +57,22 @@ class _RegisterPageState extends State<RegisterPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  const Padding(
-                    padding: EdgeInsets.only(top: 50, bottom: 30, left: 20),
-                    child: Text(
-                      'Register Here,',
-                      style: TextStyle(
-                          color: Color.fromARGB(255, 22, 221, 221),
-                          fontSize: 30),
-                    ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      Image.asset(
+                        'assets/loginPageImage.png',
+                        height: DeviceDimensions.deviceHeight(context) / 10,
+                        width: DeviceDimensions.deviceWidth(context) / 7,
+                      ),
+                      Text(
+                        'Welcome to TestHub',
+                        style: TextStyle(
+                            //color: Color.fromARGB(255, 22, 221, 221),
+                            fontWeight: FontWeight.normal,
+                            fontSize: 25),
+                      ),
+                    ],
                   ),
                   Padding(
                     padding: const EdgeInsets.only(bottom: 20),
@@ -257,7 +268,9 @@ class _RegisterPageState extends State<RegisterPage> {
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
                           primary: Color.fromARGB(255, 24, 248, 229)),
-                      onPressed: validate,
+                      onPressed: () {
+                        Navigator.of(context).pushNamed("/S_login");
+                      },
                       child: const Text(
                         "Sign in",
                         style: TextStyle(

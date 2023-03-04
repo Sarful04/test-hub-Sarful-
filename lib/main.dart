@@ -1,5 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:test_hub/featured/Student/S_login.dart';
+import 'package:test_hub/featured/Teacher/register.dart';
+import 'package:test_hub/screens/splash_screen.dart';
 
 import 'package:test_hub/services/authentication.dart';
 
@@ -12,6 +15,13 @@ void main() async {
   );
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
-    home: AuthService().handleAuthState(),
+    routes: {
+      "/": (context) => SplashScreen(),
+      "/register": (context) => RegisterPage(),
+      "/S_login": (context) => LoginPage(),
+    },
+    //home: RegisterPage(),
+    // debugShowCheckedModeBanner: false,
+    // home: AuthService().handleAuthState(),
   ));
 }
