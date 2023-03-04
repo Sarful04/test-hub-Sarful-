@@ -41,8 +41,8 @@ class _RegisterPageState extends State<RegisterPage> {
               gradient: LinearGradient(
                 colors: [
                   Color.fromARGB(255, 255, 255, 255),
-                  // Color.fromARGB(255, 255, 255, 255),
-                  Color.fromARGB(255, 200, 87, 87)
+                  Color.fromARGB(255, 255, 255, 255),
+                  // Color.fromARGB(255, 200, 87, 87)
                 ],
                 begin: Alignment.topCenter,
                 end: Alignment.bottomCenter,
@@ -58,7 +58,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       Image.asset(
                         'assets/loginPageImage.png',
@@ -269,7 +269,7 @@ class _RegisterPageState extends State<RegisterPage> {
                       style: ElevatedButton.styleFrom(
                           primary: Color.fromARGB(255, 24, 248, 229)),
                       onPressed: () {
-                        Navigator.of(context).pushNamed("/S_login");
+                        validate();
                       },
                       child: const Text(
                         "Sign in",

@@ -45,6 +45,7 @@ dependencies:
   easy_sidemenu: ^0.4.1+1
   persistent_bottom_nav_bar: ^5.0.2
   loading_indicator: ^3.1.0
+  glassmorphism: ^3.0.0
 
 dev_dependencies:
   flutter_test:

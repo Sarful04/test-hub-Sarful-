@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:loading_indicator/loading_indicator.dart';
+
 import 'package:test_hub/shared/constants/device_Dimensions.dart';
 
 class SplashScreen extends StatefulWidget {
