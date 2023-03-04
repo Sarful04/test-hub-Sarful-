@@ -17,61 +17,63 @@ class _THomePageState extends State<THomePage> {
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 2,
-      child: Scaffold(
-        drawer: Drawer(
-          child: ListView(children: [
-            DrawerHeader(
-              padding: EdgeInsets.zero,
-                child: Stack(
-                  children: [
-                    Image.asset(
-                      'assets/tec.jpg',
-                      fit: BoxFit.fill,
-                    ),
-                    Positioned(
-                      left: 20,
-                      top: 0,
-                      child: Container(
-                          height: 50, child: Image.asset('assets/acc.jpg')),
-                    ),
-                  ],
-                )),
-                DrawerList(Icons.assignment_add, 'Create new Test', (){}),
-                DrawerList(Icons.arrow_drop_down_sharp, 'Tests Live', (){}),
-                DrawerList(Icons.supervisor_account_outlined, 'developer contacts', (){}),
-                DrawerList(Icons.sms_outlined, 'Send Feedback', (){}),
-                DrawerList(Icons.privacy_tip_outlined, 'Privacy Policy', (){}),
-                DrawerList(Icons.share_outlined, 'Share App ', (){}),
-                DrawerList(Icons.logout, 'Logout', (){}),
-                DrawerList(Icons.delete_outlined, 'Delete Account', (){})
-
-          ]),
-        ),
-        appBar: AppBar(
-          backgroundColor: Color.fromARGB(255, 132, 195, 250),
-          actions: [
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.send),
-            ),
-            IconButton(
-              onPressed: () {},
-              icon: Icon(Icons.more_vert),
-            )
-          ],
-          title: Text('Test Hub'),
-          bottom: TabBar(
-            tabs: [
-              Tab(
-                text: 'YOUR CREATIONS',
+      child: SafeArea(
+        child: Scaffold(
+          drawer: Drawer(
+            child: ListView(children: [
+              DrawerHeader(
+                padding: EdgeInsets.zero,
+                  child: Stack(
+                    children: [
+                      Image.asset(
+                        'assets/tec.jpg',
+                        fit: BoxFit.fill,
+                      ),
+                      Positioned(
+                        left: 20,
+                        top: 0,
+                        child: Container(
+                            height: 50, child: Image.asset('assets/acc.jpg')),
+                      ),
+                    ],
+                  )),
+                  DrawerList(Icons.assignment_add, 'Create new Test', (){}),
+                  DrawerList(Icons.arrow_drop_down_sharp, 'Tests Live', (){}),
+                  DrawerList(Icons.supervisor_account_outlined, 'developer contacts', (){}),
+                  DrawerList(Icons.sms_outlined, 'Send Feedback', (){}),
+                  DrawerList(Icons.privacy_tip_outlined, 'Privacy Policy', (){}),
+                  DrawerList(Icons.share_outlined, 'Share App ', (){}),
+                  DrawerList(Icons.logout, 'Logout', (){}),
+                  DrawerList(Icons.delete_outlined, 'Delete Account', (){})
+      
+            ]),
+          ),
+          appBar: AppBar(
+            backgroundColor: Color.fromARGB(255, 132, 195, 250),
+            actions: [
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.send),
               ),
-              Tab(
-                text: 'SET PAPER',
+              IconButton(
+                onPressed: () {},
+                icon: Icon(Icons.more_vert),
               )
             ],
+            title: Text('Test Hub'),
+            bottom: TabBar(
+              tabs: [
+                Tab(
+                  text: 'YOUR CREATIONS',
+                ),
+                Tab(
+                  text: 'SET PAPER',
+                )
+              ],
+            ),
           ),
+          body: TabBarView(children: [T_Creation(), Setpaper()]),
         ),
-        body: TabBarView(children: [T_Creation(), Setpaper()]),
       ),
     );
   }

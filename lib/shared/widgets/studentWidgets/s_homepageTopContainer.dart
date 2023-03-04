@@ -1,3 +1,4 @@
+
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
@@ -37,7 +38,7 @@ class StudentHomepageTopContainer extends StatelessWidget {
               ],
             ),
             SizedBox(
-              height: DeviceDimensions.deviceHeight(context) / 25,
+              height: DeviceDimensions.deviceHeight(context) / 40,
             ),
             AutoSizeText(
               "Hello, ${FirebaseAuth.instance.currentUser!.displayName} 👋",

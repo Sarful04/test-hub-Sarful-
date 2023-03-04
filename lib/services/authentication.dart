@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:test_hub/featured/Student/S_homepage.dart';
 import 'package:test_hub/featured/Student/S_login.dart';
+import 'package:test_hub/shared/widgets/bottomNavigationBar.dart';
 
 final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
@@ -14,7 +15,7 @@ class AuthService {
           if (snapshot.hasData) {
             //return RouteAnimation().createRoute(LandingPage());
             //return const LandingPage();
-            return const StudentHomepage();
+            return const MypersistentBottomNavBar();
           } else {
             return const LoginPage();
           }
