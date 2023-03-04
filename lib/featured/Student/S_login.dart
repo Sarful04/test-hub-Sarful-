@@ -142,6 +142,7 @@ class _LoginPageState extends State<LoginPage> {
                 ),
                 InkWell(
                   onTap: () {
+                    //AuthService().signOut();
                     AuthService().signInWithGoogle();
                   },
                   child: Container(

@@ -1,5 +1,4 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:test_hub/shared/constants/device_Dimensions.dart';
@@ -23,7 +22,7 @@ class StudentHomepageTopContainer extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             AutoSizeText(
-              "Hello, ${FirebaseAuth.instance.currentUser!.displayName}! 👋",
+              "Hello,  👋",
               maxLines: 1,
               style: GoogleFonts.nunito(
                   fontSize: 30,

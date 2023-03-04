@@ -12,8 +12,6 @@ class AuthService {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (BuildContext context, snapshot) {
           if (snapshot.hasData) {
-            //return RouteAnimation().createRoute(LandingPage());
-            //return const LandingPage();
             return const StudentHomepage();
           } else {
             return const LoginPage();

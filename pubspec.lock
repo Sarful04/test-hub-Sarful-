@@ -184,6 +184,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  fluttertoast:
+    dependency: "direct main"
+    description:
+      name: fluttertoast
+      sha256: "2f9c4d3f4836421f7067a28f8939814597b27614e021da9d63e5d3fb6e212d25"
+      url: "https://pub.dev"
+    source: hosted
+    version: "8.2.1"
   go_router:
     dependency: "direct main"
     description:
@@ -212,10 +220,10 @@ packages:
     dependency: "direct main"
     description:
       name: google_sign_in
-      sha256: "71c5311a19a2406498028a54fcac81351827297fa8cf5abbf51b7e0fa1bc64f5"
+      sha256: "750d08ffb4cd469f13068d15844ffd1d60c7ac1ca3c815918ba4ce4af22a2ddb"
       url: "https://pub.dev"
     source: hosted
-    version: "6.0.1"
+    version: "6.0.2"
   google_sign_in_android:
     dependency: transitive
     description:
@@ -228,10 +236,10 @@ packages:
     dependency: transitive
     description:
       name: google_sign_in_ios
-      sha256: eca3433737cfe8b231127d43a3e6527e07d5f8e4a0c00ce593aaaf7bc92bb135
+      sha256: "2575ef0d06dbe6923cedf39766da8305d407bb891d9f4a59502c642719776c5c"
       url: "https://pub.dev"
     source: hosted
-    version: "5.5.2"
+    version: "5.6.0"
   google_sign_in_platform_interface:
     dependency: transitive
     description:
@@ -288,6 +296,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.1"
+  loading_indicator:
+    dependency: "direct main"
+    description:
+      name: loading_indicator
+      sha256: "5cb15810fc3d8872230d086b4810d9f9bbcd6e7d208a38f7cd6bc81fb2650e4b"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.1.0"
   logging:
     dependency: transitive
     description:
