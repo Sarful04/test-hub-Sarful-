@@ -1,8 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:test_hub/featured/Student/S_homepage.dart';
-import 'package:test_hub/featured/Student/S_login.dart';
+import 'package:test_hub/featured/Student/homeScreen.dart';
+import 'package:test_hub/featured/join/loginScreen.dart';
 
 final FirebaseAuth _firebaseAuth = FirebaseAuth.instance;
 
@@ -12,8 +12,6 @@ class AuthService {
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (BuildContext context, snapshot) {
           if (snapshot.hasData) {
-            //return RouteAnimation().createRoute(LandingPage());
-            //return const LandingPage();
             return const StudentHomepage();
           } else {
             return const LoginPage();

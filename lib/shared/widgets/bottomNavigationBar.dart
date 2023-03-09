@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
-
-import 'package:test_hub/featured/Student/S_homepage.dart';
+import 'package:test_hub/featured/Student/homeScreen.dart';
 
 class MypersistentBottomNavBar extends StatelessWidget {
   const MypersistentBottomNavBar({super.key});

@@ -26,3 +26,44 @@ void main() async {
     // home: AuthService().handleAuthState(),
   ));
 }
+
+// final GoRouter _router = GoRouter(
+//   initialLocation: "/",
+
+//   routes: <GoRoute>[
+//     GoRoute(
+//       path: '/',
+//       builder: (BuildContext context, GoRouterState state) {
+//         return const SplashScreen();
+//       },
+//     ),
+//     GoRoute(
+//       path: '/s_login',
+//       builder: (BuildContext context, GoRouterState state) {
+//         return const LoginPage();
+//       },
+//     ),
+//     GoRoute(
+//       path: '/s_homepage',
+//       builder: (BuildContext context, GoRouterState state) {
+//         return const StudentHomepage();
+//       },
+//     ),
+//   ],
+//   // routes: <RouteBase>[
+//   //   GoRoute(
+//   //     path: '/',
+//   //     builder: (BuildContext context, GoRouterState state) {
+//   //       return const SplashScreen();
+//   //     },
+//   //     routes: <RouteBase>[
+//   //       GoRoute(
+//   //         path: 'details',
+//   //         builder: (BuildContext context, GoRouterState state) {
+//   //           return const StudentHomepage();
+//   //         },
+//   //       ),
+//   //     ],
+//   //   ),
+//   // ],
+// );
