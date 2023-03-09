@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:persistent_bottom_nav_bar/persistent_tab_view.dart';
-import 'package:test_hub/featured/Student/S_homepage.dart';
-import 'package:test_hub/featured/Teacher/T_home.dart';
+import 'package:test_hub/featured/Student/homeScreen.dart';
+
+import '../../featured/Teacher/questions/screens/homeScreen.dart';
 
 class MypersistentBottomNavBar extends StatelessWidget {
   const MypersistentBottomNavBar({super.key});
 
   List<Widget> _screens() {
-    return [const StudentHomepage(),const THomePage()];
+    return [const StudentHomepage(),const QuestionHomeScreen()];
   }
 
   List<PersistentBottomNavBarItem> _items() {

@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:test_hub/services/authentication.dart';
+import 'package:test_hub/featured/Teacher/questions/screens/addQuestionScreen.dart';
+import 'package:test_hub/featured/join/registerScreen.dart';
 
 
 import 'firebase_options.dart';
@@ -10,9 +11,51 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    home: AuthService().handleAuthState(),
-
-  ));
+  runApp(const MaterialApp(
+      //routerConfig: _router,
+      debugShowCheckedModeBanner: false,
+      home: AddQuestionScreen(),
+      //home: AuthService().handleAuthState(),
+      ));
 }
+
+// final GoRouter _router = GoRouter(
+//   initialLocation: "/",
+
+//   routes: <GoRoute>[
+//     GoRoute(
+//       path: '/',
+//       builder: (BuildContext context, GoRouterState state) {
+//         return const SplashScreen();
+//       },
+//     ),
+//     GoRoute(
+//       path: '/s_login',
+//       builder: (BuildContext context, GoRouterState state) {
+//         return const LoginPage();
+//       },
+//     ),
+//     GoRoute(
+//       path: '/s_homepage',
+//       builder: (BuildContext context, GoRouterState state) {
+//         return const StudentHomepage();
+//       },
+//     ),
+//   ],
+//   // routes: <RouteBase>[
+//   //   GoRoute(
+//   //     path: '/',
+//   //     builder: (BuildContext context, GoRouterState state) {
+//   //       return const SplashScreen();
+//   //     },
+//   //     routes: <RouteBase>[
+//   //       GoRoute(
+//   //         path: 'details',
+//   //         builder: (BuildContext context, GoRouterState state) {
+//   //           return const StudentHomepage();
+//   //         },
+//   //       ),
+//   //     ],
+//   //   ),
+//   // ],
+// );

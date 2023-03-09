@@ -17,7 +17,7 @@ Widget UserButton(
         onPressed: fn!,
         child: Text(
           buttonText,
-          style: GoogleFonts.nunito(color: Colors.white, fontSize: fontSize),
+          style: GoogleFonts.nunito(color: Colors.black, fontSize: fontSize),
         )),
   );
 }

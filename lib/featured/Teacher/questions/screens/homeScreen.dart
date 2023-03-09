@@ -1,18 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:flutter/src/widgets/placeholder.dart';
-import 'package:test_hub/featured/Teacher/creation.dart';
-import 'package:test_hub/featured/Teacher/drawerlist.dart';
-import 'package:test_hub/featured/Teacher/set_paper.dart';
+import '../../creation.dart';
+import '../../drawerlist.dart';
+import '../../set_paper.dart';
 
-class THomePage extends StatefulWidget {
-  const THomePage({super.key});
+class QuestionHomeScreen extends StatelessWidget {
+  const QuestionHomeScreen({super.key});
 
-  @override
-  State<THomePage> createState() => _THomePageState();
-}
-
-class _THomePageState extends State<THomePage> {
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
@@ -49,19 +42,19 @@ class _THomePageState extends State<THomePage> {
             ]),
           ),
           appBar: AppBar(
-            backgroundColor: Color.fromARGB(255, 132, 195, 250),
+            backgroundColor: const Color.fromARGB(255, 132, 195, 250),
             actions: [
               IconButton(
                 onPressed: () {},
-                icon: Icon(Icons.send),
+                icon: const Icon(Icons.send),
               ),
               IconButton(
                 onPressed: () {},
-                icon: Icon(Icons.more_vert),
+                icon: const Icon(Icons.more_vert),
               )
             ],
-            title: Text('Test Hub'),
-            bottom: TabBar(
+            title: const Text('Test Hub'),
+            bottom: const TabBar(
               tabs: [
                 Tab(
                   text: 'YOUR CREATIONS',
@@ -72,9 +65,10 @@ class _THomePageState extends State<THomePage> {
               ],
             ),
           ),
-          body: TabBarView(children: [T_Creation(), Setpaper()]),
+          body: const TabBarView(children: [T_Creation(), Setpaper()]),
         ),
       ),
     );
+
   }
 }
