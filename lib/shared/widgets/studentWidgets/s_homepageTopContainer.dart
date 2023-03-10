@@ -1,4 +1,6 @@
+
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:test_hub/shared/constants/device_Dimensions.dart';
@@ -21,6 +23,23 @@ class StudentHomepageTopContainer extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            Row(
+              children: [
+                CircleAvatar(
+                    radius: 25,
+                    backgroundImage: NetworkImage(
+                        FirebaseAuth.instance.currentUser!.photoURL!)),
+                const Spacer(),
+                const Icon(
+                  Icons.notifications,
+                  size: 30,
+                  color: Colors.white,
+                ),
+              ],
+            ),
+            SizedBox(
+              height: DeviceDimensions.deviceHeight(context) / 25,
+            ),
             AutoSizeText(
               "Hello,  👋",
               maxLines: 1,

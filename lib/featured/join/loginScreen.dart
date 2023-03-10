@@ -21,7 +21,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      resizeToAvoidBottomInset: false,
+      resizeToAvoidBottomInset: true,
       body: SafeArea(
         child: Padding(
           padding: const EdgeInsets.symmetric(
@@ -30,56 +30,36 @@ class _LoginPageState extends State<LoginPage> {
           ),
           child: Form(
             key: _loginfield,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Image.asset(
-                  "assets/loginPageImage.png",
-                  height: DeviceDimensions.deviceHeight(context) / 4,
-                  width: DeviceDimensions.deviceWidth(context) / 2,
-                ),
-                SizedBox(height: DeviceDimensions.deviceHeight(context) / 20),
-                TextFormField(
-                  keyboardType: TextInputType.emailAddress,
-                  controller: emailController,
-                  decoration: const InputDecoration(
-                    labelText: "User Email",
-                    border: OutlineInputBorder(),
-                    prefixIcon: Icon(
-                      Icons.email,
-                    ),
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Image.asset(
+                    "assets/loginPageImage.png",
+                    height: DeviceDimensions.deviceHeight(context) / 4,
+                    width: DeviceDimensions.deviceWidth(context) / 2,
                   ),
-                  // validator: (value) {
-                  //   bool emailValid = RegExp(
-                  //           r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                  //       .hasMatch(value!);
-                  //   if (value.isEmpty) {
-                  //     return "Enter Email";
-                  //   } else if (!emailValid) {
-                  //     return "Enter Vaild Email";
-                  //   }
-                  // },
-                ),
-                SizedBox(
-                  height: DeviceDimensions.deviceHeight(context) / 50,
-                ),
-                TextFormField(
-                  keyboardType: TextInputType.emailAddress,
-                  controller: passController,
-                  obscureText: passToggle,
-                  decoration: InputDecoration(
-                    labelText: "Password",
-                    border: const OutlineInputBorder(),
-                    prefixIcon: const Icon(Icons.lock),
-                    suffixIcon: InkWell(
-                      onTap: () {
-                        setState(() {
-                          passToggle = !passToggle;
-                        });
-                      },
-                      child: Icon(
-                          passToggle ? Icons.visibility : Icons.visibility_off),
+                  SizedBox(height: DeviceDimensions.deviceHeight(context) / 20),
+                  TextFormField(
+                    keyboardType: TextInputType.emailAddress,
+                    controller: emailController,
+                    decoration: const InputDecoration(
+                      labelText: "User Email",
+                      border: OutlineInputBorder(),
+                      prefixIcon: Icon(
+                        Icons.email,
+                      ),
                     ),
+                    // validator: (value) {
+                    //   bool emailValid = RegExp(
+                    //           r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
+                    //       .hasMatch(value!);
+                    //   if (value.isEmpty) {
+                    //     return "Enter Email";
+                    //   } else if (!emailValid) {
+                    //     return "Enter Vaild Email";
+                    //   }
+                    // },
                   ),
                   // validator: (value) {
                   //   if (value!.isEmpty) {
@@ -88,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                   //     return " Password Length Should be more than 6 characters";
                   //   }
                   // },
-                ),
+                
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -177,12 +157,14 @@ class _LoginPageState extends State<LoginPage> {
                       ],
                     ),
                   ),
-                ),
-              ],
+                
+              ),
+                ]
             ),
           ),
+  
         ),
       ),
-    );
+     ) );
   }
 }

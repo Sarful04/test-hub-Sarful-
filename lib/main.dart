@@ -7,6 +7,7 @@ import 'package:test_hub/screens/splash_screen.dart';
 
 import 'package:test_hub/services/authentication.dart';
 
+
 import 'firebase_options.dart';
 
 void main() async {
@@ -25,6 +26,7 @@ void main() async {
     // debugShowCheckedModeBanner: false,
     // home: AuthService().handleAuthState(),
   ));
+
 }
 
 // final GoRouter _router = GoRouter(
