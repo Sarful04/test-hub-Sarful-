@@ -35,7 +35,12 @@ class _T_CreationState extends State<T_Creation> {
                 labelStyle: TextStyle(color: Colors.white),
               ),
               SpeedDialChild(
-                child: IconButton(onPressed: () {}, icon: Icon(Icons.zoom_in)),
+                child: IconButton(
+                    onPressed: () {},
+                    icon: Icon(
+                      Icons.add,
+                      color: Colors.white,
+                    )),
                 backgroundColor: Color.fromARGB(255, 58, 149, 240),
                 label: 'ONGOING TESTS',
                 labelBackgroundColor: Colors.grey.shade800,
